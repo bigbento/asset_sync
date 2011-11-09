@@ -26,7 +26,7 @@ module AssetSync
     end
 
     def local_files
-      Dir["#{path}/assets/**/**"].map { |f| f[path.length+1,f.length-path.length] }
+      Dir["#{path}#{Rails.application.config.assets.prefix}/**/**"].map { |f| f[path.length+1,f.length-path.length] }
     end
 
     def get_remote_files
